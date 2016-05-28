@@ -38,6 +38,7 @@ sub setup_installer {
         $self->log_fatal(["Prereq Module::Patch must be specified >= 0.12"]);
     }
     my ($target_mod, $desc) = $name =~ /\A(\w+(?:-\w+)*)-Patch-(\w+)\z/;
+    $target_mod =~ s/-/::/g;
     unless (defined $rr_prereqs->{$target_mod}) {
         $self->log_fatal(["No prereq to target module %s has been specified", $target_mod]);
     }
