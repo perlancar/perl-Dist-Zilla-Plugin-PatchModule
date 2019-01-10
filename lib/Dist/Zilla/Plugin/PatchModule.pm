@@ -12,7 +12,7 @@ use namespace::autoclean;
 
 with (
     'Dist::Zilla::Role::BeforeBuild',
-    'Dist::Zilla::Role::InstallTool',
+    'Dist::Zilla::Role::AfterBuild',
 );
 
 sub before_build {
@@ -24,7 +24,7 @@ sub before_build {
     }
 }
 
-sub setup_installer {
+sub after_build {
     my ($self) = @_;
     my $name  = $self->zilla->name;
 
